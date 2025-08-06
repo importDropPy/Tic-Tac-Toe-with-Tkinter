@@ -543,6 +543,7 @@ players = ["x","o"]
 player = random.choice(players)
 
 # This is a 2d list of buttons that represent the game board
+# NOTE = A 2D LIST IS A LIST OR LISTS INSIDE OF A LIST
 buttons =  [[0,0,0],
             [0,0,0],
             [0,0,0]]
@@ -626,6 +627,7 @@ for row in range(3):
 #       the 'window' variable is assigned to the Tk() function
 
 window.mainloop()
+
 
 
 
