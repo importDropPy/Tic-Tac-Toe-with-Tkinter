@@ -77,11 +77,11 @@
 #         _\///////////__\///______________\///__\///___________________\/////_______\///________\///________\///________
 
 
-# - Import tkinter here which is a commonly used library for 
+# - Import tkinter here. Tkinter is a commonly used library for 
 #       developing GUI in Python
 from tkinter import *
 
-# - Import random so that we choose a player at 
+# - Import random so that functionality can choose a player at 
 #       random to start after calling a new game(new_game()) 
 import random
 
@@ -122,9 +122,9 @@ import random
 
 
 
-# - Upon every 'buttons[row][column]' click this function 
+# - Upon every 'buttons[row][column]' click, this function 
 #       will be called to change to player '1' or '2'
-# The parameters of this function take in row and column
+# The parameters of this function take in row and column last clicked
 def next_turn(row, column):
 
     # - We would like access to our 'player' in the entire 
@@ -160,7 +160,7 @@ def next_turn(row, column):
             #       Boolean value that will tell us if it has calculated a winner
             # - If there is a winner, then, we will modify the 'label' by use of the 
             #       config() functionality 
-            # - And, meanwhile the check_winner() function will automatically highlight 
+            # - And, meanwhile, the check_winner() function will automatically highlight 
             #       the buttons in green that calculated the winner and end the game if there is a winner
             elif check_winner() is True:
                 
@@ -180,7 +180,7 @@ def next_turn(row, column):
                 #       top of our game window to say 'Tie!' instead of 'players[n] turn' 
                 label.config(text="Tie!")
 
-        # If all other 'else if' conditions are not satisfied then fire this code block ...
+        # If all other 'else if' conditions are not satisfied then this code block will fire off ...
         else:
             
             # We will use this line to fill in the button with the symbol of the last player
@@ -191,7 +191,7 @@ def next_turn(row, column):
                 
                 # - If no winner is returned then this line of code will 
                 #       tell the program that it is the next players turn because 
-                #           no winner was dediced
+                #           no winner was decided
                 player = players[0]
                 
                 # - Since no winner was found we also modify the 'label' with 
@@ -199,9 +199,9 @@ def next_turn(row, column):
                 #           the top of the window
                 label.config(text=(players[0]+" turn"))
 
-            # - If the check_winner() function does return a Boolean value of True then 
-            #       it wont be the next players turn and a winner is decided by modifying the 
-            #           'label' with the config() functionality while the check_winner() function 
+            # - If the check_winner() function does return a Boolean value of True, then, 
+            #       it wont be the next players turn, and, a winner is decided by modifying the 
+            #           'label' with the config() functionality, while, the check_winner() function 
             #               highlights the winning path
             elif check_winner() is True:
                 
@@ -209,7 +209,7 @@ def next_turn(row, column):
                 #       from 'players[n] turn' to 'players[n] wins'
                 label.config(text=(players[1]+" wins"))
 
-            # - If the check_winner() function returns a 'Tie' then it will 
+            # - If the check_winner() function returns a 'Tie', then, it will 
             #       highlight the entire game board in yellow and modify the 
             #           'label' with the config() functionality from 'players[n] turn' to 'Tie!'
             elif check_winner() == "Tie":
@@ -262,10 +262,10 @@ def check_winner():
     for row in range(3):
         
         # - This condition will test if any row returns three values equal to 
-        #       eachother and also does not equal an empty string
-        #  -If that is the case then whichever row that satisfies the condition 
+        #       eachother, and, if any three values on a row does not equal an empty string
+        # - If that is the case, then, whichever row that satisfies the condition 
         #       will be highlighted green while returning a Boolean value of 'True'
-        # In other words, a winner was found and returned
+        # - In other words, a winner was found and returned
         if buttons[row][0]['text'] == buttons[row][1]['text'] == buttons[row][2]['text'] != "":
             buttons[row][0].config(bg="green")
             buttons[row][1].config(bg="green")
@@ -276,10 +276,10 @@ def check_winner():
     for column in range(3):
         
         # - This condition will test if any column returns three values equal to 
-        #       eachother and also does not equal an empty string
-        # - If that is the case then whichever column that satisfies the condition 
+        #       eachother, and, if any three values on a column does not equal an empty string
+        # - If that is the case, then, whichever column that satisfies the condition 
         #       will be highlighted green while returning a Boolean value of 'True'
-        # In other words, a winner was found and returned
+        # - In other words, a winner was found and returned
         if buttons[0][column]['text'] == buttons[1][column]['text'] == buttons[2][column]['text'] != "":
             buttons[0][column].config(bg="green")
             buttons[1][column].config(bg="green")
@@ -287,10 +287,10 @@ def check_winner():
             return True
 
     # - This condition will try to find a winner by seeing if the top left, center, 
-    #       and bottom right buttons contain the same player symbol and does not equal 
+    #       and, bottom right buttons contain the same player symbol, and, does not equal 
     #           an empty string
-    # - If this is the case then a diagonal line of highlighted squares will be presented 
-    #       while also returning a Boolean value of 'True' aka a winner is identified
+    # - If this is the case, then, a diagonal line of highlighted squares will be presented, 
+    #       while, also returning a Boolean value of 'True' aka a winner is identified
     if buttons[0][0]['text'] == buttons[1][1]['text'] == buttons[2][2]['text'] != "":
         buttons[0][0].config(bg="green")
         buttons[1][1].config(bg="green")
@@ -298,10 +298,10 @@ def check_winner():
         return True
 
     # - This condition will try to find a winner by seeing if the top right, center, 
-    #       and bottom left buttons contain the same player symbol and does not equal 
+    #       and, bottom left buttons contain the same player symbol, and, does not equal 
     #           an empty string
-    # - If this is the case then a diagonal line of highlighted squares will be presented 
-    #       while also returning a Boolean value of 'True' aka a winner is identified
+    # - If this is the case, then, a diagonal line of highlighted squares will be presented, 
+    #       while, also returning a Boolean value of 'True' aka a winner is identified
     elif buttons[0][2]['text'] == buttons[1][1]['text'] == buttons[2][0]['text'] != "":
         buttons[0][2].config(bg="green")
         buttons[1][1].config(bg="green")
@@ -310,9 +310,9 @@ def check_winner():
 
     # - This condition will check if the empty_spaces() functionality found 
     #       any empty spaces
-    # - And this condition will run if no other condition was satisfied
-    # - If that is the case then we use a for loop to highlight every button
-    #       on the grid to be colored yellow while also returning a string value 
+    # - And, this condition will run if no other condition was satisfied
+    # - If that is the case, then, we use a for loop to highlight every button
+    #       on the grid to be colored yellow, while, also returning a string value 
     #           of 'Tie'
     elif empty_spaces() is False:
         
@@ -323,15 +323,16 @@ def check_winner():
             for column in range(3):
                 
                 # - Here we will color the buttons yellow with the config() 
-                #       functionality if no empty spaces were found
+                #       functionality, if no empty spaces were found
                 buttons[row][column].config(bg="yellow")
-        # - If no empty spaces were found, then after we have highlighted 
+                
+        # - If no empty spaces were found, then, after we have highlighted 
         #       the buttons we will return a string value of 'Tie'
         return "Tie"
 
-    # - If none of the conditions above were satisfied then no 
-    #       winner has been found and the game will continue on for 
-    #           whether how many empty spaces are left or until enough buttons 
+    # - If none of the conditions above were satisfied, then, no 
+    #       winner has been found, and, the game will continue on for 
+    #           however how many empty spaces are left, or, until enough buttons 
     #               have been clicked to satisfy either a winner or a tie in the check_winner() function
     # - If this code runs, then, either 'player = players[0]' OR 'player = players[1]' depending 
     #       on whose turn it is, or, what player was chosen at random to start the game
@@ -393,14 +394,14 @@ def empty_spaces():
 
 
 
-    # - If the variable 'spaces' is calculated to have decreased to 0 then 
+    # - If the variable 'spaces' is calculated to have decreased to 0, then, 
     #       we return the Boolean value 'False' indicating that there are no more 
     #           spaces
-    # - If this condition returns 'False' then the check_winner() function will 
-    #       automatically return a string value of 'Tie' while highlighting the entire
+    # - If this condition returns 'False', then, the check_winner() function will 
+    #       automatically return a string value of 'Tie', while highlighting the entire
     #           gameboard yellow 
     # - If this condition returns 'True', then, if the check_winner() function 
-    #       has not found a winner then the next players turn will commence
+    #       has not found a winner, then, the next player's turn will commence
     if spaces == 0:
         return False
     else:
@@ -457,7 +458,7 @@ def new_game():
     player = random.choice(players)
 
     # - Since we are restarting the game we must make sure to update the 'label' with 
-    #       the config() functionality and input the 'player' variable's random choice for 
+    #       the config() functionality, and, input the 'player' variable's random choice for 
     #           who will start the game
     label.config(text=player+" turn")
 
@@ -537,7 +538,7 @@ window.title("Tic Tac Toe")
 players = ["x","o"]
 
 # - When the game first lanches this function decides at random what 
-#       player will begin for example 'O starts' or 'X starts'
+#       player will begin, for example, 'O starts' or 'X starts'
 player = random.choice(players)
 
 # This is a 2d list of buttons that represent the game board
@@ -549,7 +550,7 @@ buttons =  [[0,0,0],
 # This label will display whose turn it is in the game
 label = Label(text=player + " turn", font=('consolas',40))
 
-# - This Tkinter pack() function will tell where the label should be put, andso,
+# - This Tkinter pack() function will tell the program where the label should be put, andso,
 #       for this example we will put the 'label' identifying whose turn it is at the "top"
 label.pack(side="top")
 
@@ -561,19 +562,19 @@ label.pack(side="top")
 #       call our 'new_game()' function for us
 reset_button = Button(text="restart", font=('consolas',20), command=new_game)
 
-# - We will pack() our button once again at the "top" and so since 
-#       the 'label' is the first one packed into the window
+# - We will pack() our button once again at the "top", and, since 
+#       the 'label' is the first one packed into the window,
 #           then, since the button is the second item to be packed at 
-#               the "top" then it will be right under the 'label'
+#               the "top", then, it will be right under the 'label'
 reset_button.pack(side="top")
 
 
 
 
 # - This functionality will 'Frame()' the Tkinter window into a 
-#       rectangular region in which to organize widgets
+#       rectangular region in which to organize widgets, in this example a button
 # - The Frame() widget will be used as a foundation class to implement 
-#       complex widgets like the 'buttons' 2d list
+#       complex widgets like the 'buttons' 2d list into the rectangular region
 frame = Frame(window)
 
 # This will simply pack the widgets into the frame
@@ -581,8 +582,8 @@ frame.pack()
 
 
 
-# We will use a nested for loop to consolidate the buttons inside the window
-# Outer for loop will be in charge of the rows
+# - We will use a nested for loop to consolidate the buttons inside the window
+# - Outer for loop will be in charge of the rows
 for row in range(3):
     
     # The inner for loop will be in charge of the columns
@@ -622,4 +623,12 @@ for row in range(3):
 
 # - This will launch our game window because 
 #       the 'window' variable is assigned to the Tk() function
+
 window.mainloop()
+
+
+
+
+
+
+
