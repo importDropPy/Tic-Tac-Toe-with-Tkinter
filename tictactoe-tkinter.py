@@ -47,7 +47,8 @@
 
 
 
-
+# NOTE = PLEASE BEGIN LEARNING THIS SCRIPT BY STARTING AT THE 'SETUP YOUR GUI WITH TKINTER' AND 'LAUNCH'
+# NOTE 2 = ONCE YOU HAVE LEARNED THE ABOVE PART THEN MOVE ONTO THE 'NEXT PLAYER TURN', 'CHECK FOR A WINNER', 'ANYMORE EMPTY SPACES?', AND 'RESET THE GAME' SECTIONS
 ###############################################################################################################################################################
 
 
@@ -625,6 +626,7 @@ for row in range(3):
 #       the 'window' variable is assigned to the Tk() function
 
 window.mainloop()
+
 
 
 
