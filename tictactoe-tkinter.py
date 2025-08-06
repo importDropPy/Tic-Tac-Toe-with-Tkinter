@@ -579,12 +579,12 @@ reset_button.pack(side="top")
 #       complex widgets like the 'buttons' 2d list into the rectangular region
 frame = Frame(window)
 
-# This will simply pack the widgets into the frame
+# This will simply pack the widgets into the 'frame = Frame(window)'
 frame.pack()
 
 
 
-# - We will use a nested for loop to consolidate the buttons inside the window
+# - We will use a nested for loop to consolidate the buttons inside the 'frame = Frame(window)'
 # - Outer for loop will be in charge of the rows
 for row in range(3):
     
@@ -592,16 +592,18 @@ for row in range(3):
     for column in range(3):
         
         # We will create a new button with two indexes because we are using a 2d list
-        # Notice how in the 'Button()' we add 'Button(frame)' to add this to the frame
+        # Our two indexes will be [row] and [column] of the 'buttons' 2d list
+        # Notice how in the 'Button()' we add 'Button(frame)' to add this to the 'frame = Frame(window)'
         # Next we customize the text(leave it blank), font, width, and height
         # And, we write a command assigned to a lambda function with row and column as key word arguments
-        # Finally, in the lambda function our expression will call the 'next_turn()' function for every button press
+        # Finally, in the lambda function our expression will call the 'next_turn(keyword argument, keyword argument)' function for every button press
         buttons[row][column] = Button(frame, text="", font=('consolas',40), width=5, height=2,
                                     command= lambda row=row, column=column: next_turn(row,column))
         
-        # - Here we will add our 'buttons' to our frame and the grid() method is 
-        #       used in the Tkinter library to arrange widgets in a table-like structure, 
-        #           allowing you to specify their position using row and column indices
+        # - Here we will add our 'buttons' to our 'frame = Frame(window)' 
+        # - The grid() method is used in the Tkinter library to arrange widgets 
+        #        in a table-like structure, allowing you to specify their position 
+        #            using row and column indexes, 'buttons[row][column]'
         buttons[row][column].grid(row=row,column=column)
 
 
@@ -627,6 +629,7 @@ for row in range(3):
 #       the 'window' variable is assigned to the Tk() function
 
 window.mainloop()
+
 
 
 
